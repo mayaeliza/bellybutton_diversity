@@ -1,7 +1,7 @@
 # bellybutton_diversity
 
 ## Overview
-Use JavaScript to create a dashboard that sorts through belly button bacteria data and reflects results in a bar graph, bubble chart, and gauge chart.
+Use JavaScript to create a dashboard that sorts through belly button bacteria data and reflects results for individuals in a bar graph, bubble chart, and gauge chart.
 
 ## Resources 
 JavaScript, VS Code, CSS, HTML
