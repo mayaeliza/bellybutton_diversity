@@ -1,0 +1,57 @@
+// 3. Create a variable that holds the samples array. 
+        console.log(data)
+
+        var wfreq = data.metadata.map(d => d.wfreq)
+        console.log(`Washing Freq: ${wfreq}`)
+
+    // 4. Create a variable that filters the samples for the object with the desired sample number.
+        var samples = data.samples.filter(s => s.id.toString() === id)[0];
+        
+        console.log(samples);
+
+    //  5. Create a variable that holds the first sample in the array.
+        var samplevalues = samples.sample_values.slice(0, 10).reverse();
+
+    // 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
+        var OTU_top = (samples.otu_ids.slice(0, 10)).reverse();
+
+        var OTU_id = OTU_top.map(d => "OTU " + d)
+
+        var labels = samples.otu_labels.slice(0, 10);
+        console.log(`Sample Values: ${samplevalues}`)
+    
+    // 7. Create the yticks for the bar chart.
+    // Hint: Get the the top 10 otu_ids and map them in descending order  
+    //  so the otu_ids with the most bacteria are last. 
+    
+        var trace = {
+            x: samplevalues,
+            y: OTU_id,
+            text: labels,
+            marker: {
+              color: 'rgb(142,124,195)'},
+            type:"bar",
+            orientation: "h",
+        };
+
+    // 8. Create the trace for the bar chart. 
+        var data = [trace]; 
+    
+    // 9. Create the layout for the bar chart. 
+        var layout = {
+            title: "Top 10 OTU",
+            yaxis:{
+                tickmode:"linear",
+            },
+            margin: {
+                l: 100,
+                r: 100,
+                t: 100,
+                b: 30
+            }
+          };
+     
+    // 10. Use Plotly to plot the data with the layout. 
+    Plotly.newPlot("bar", data, layout);  
+        });  
+}
